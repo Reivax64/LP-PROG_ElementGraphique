@@ -14,7 +14,6 @@ using namespace std;
 
 int main()
 {
-
     char rep,rep2;
     string retour;
     bool retourEnlever;
@@ -30,10 +29,10 @@ int main()
 
     do
     {
-
+        // system("cls") permet d'enlever ce menu après une réponse.
         system("cls");
-        cout << "Nombre d'element : " << zs.nbElements() << " | Epaisseur trait : " << ElementGraphique::epaisseurTrait() << endl
-             << "AJOUT (a) ? ENLEVER (e) ? AFFICHER (s) ? RECHERCHE (r) ? Changer trait (t) ? trier (z) ? Quitter (q) ?" << endl;
+        cout << "Nombre d'elements : " << zs.nbElements() << " | Epaisseur trait : " << ElementGraphique::epaisseurTrait() << endl
+             << "AJOUT (a) ? ENLEVER (e) ? AFFICHER (s) ? RECHERCHER (r) ? Changer trait (t) ? Trier (z) ? Quitter (q) ?" << endl;
         cin >> rep;
         system("cls");
 
@@ -42,14 +41,12 @@ int main()
         case 'a':
             if (zs.nbElements() == 10)
             {
-                cout << "La zone de dessin est pleine";
+                cout << "La zone de dessin est pleine" << endl;
+                // La pause permet d'afficher le cout précédent avant de retourner sur le menu principal.
                 system("pause");
-
             }
             else
             {
-
-
                 cout << "Cercle (1) ? Carre (2) ? Case a cocher (3) ? Bouton (4) ?" << endl;
                 cin >> rep2;
 
@@ -65,28 +62,28 @@ int main()
                 switch (rep2)
                 {
                 case '1':
-                    zs.ajouterFin(new Cercle(Point(x,y),cote_rayon));
+                    zs.ajouterFin(new Cercle(Point(x,y), cote_rayon));
                     break;
                 case '2':
-                    zs.ajouterFin(new Carre(Point(x,y),cote_rayon));
+                    zs.ajouterFin(new Carre(Point(x,y), cote_rayon));
                     break;
                 case '3':
                     cout << "active ? : ";
                     cin >> actif;
-                    zs.ajouterFin(new CaseACocher(Carre(Point(x,y),cote_rayon),actif));
+                    zs.ajouterFin(new CaseACocher(Carre(Point(x,y), cote_rayon), actif));
                     break;
                 case '4':
                     cout << "actif ? : ";
                     cin >> actif;
-                    zs.ajouterFin(new Bouton(Cercle(Point(x,y),cote_rayon),actif));
+                    zs.ajouterFin(new Bouton(Cercle(Point(x,y), cote_rayon), actif));
                     break;
 
                 default:
                     break;
                 }
             }
-
             break;
+
         case 'e':
             cout << "index : ";
             cin >> index;
@@ -94,12 +91,11 @@ int main()
             retourEnlever = zs.enlever(index);
             if (retourEnlever)
             {
-
-                cout << "L'element a ete enlever";
+                cout << "L'element a ete enleve";
                 delete eg;
             }
             else
-                cout << "L'element n'a pas pu etre enlever";
+                cout << "L'element n'a pas pu etre enleve";
 
             cout << endl << "Retour au menu" << endl;
             system("pause");
@@ -174,17 +170,12 @@ int main()
     }
     while (rep != 'q');
 
-
     while(zs.nbElements() > 0)
     {
         eg = zs.element(0);
         zs.enlever(0);
         delete eg;
-
     }
-
-
-
 
     return 0;
 }
