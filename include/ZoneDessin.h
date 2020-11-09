@@ -5,7 +5,6 @@
 
 #include "ElementGraphique.h"
 #include <vector>
-#include <set>
 
 using namespace std;
 
@@ -55,13 +54,13 @@ public:
     void dimensionner(int,int);
     int largeur() const;
     int hauteur() const;
-    int ajouter(ElementGraphique*);
-    bool enlever(const ElementGraphique&);
-    //ElementGraphique* element(int) const;
+    int ajouterFin(ElementGraphique*);
+    bool enlever(int);
+    ElementGraphique* element(int) const;
     void afficher() const;
     int nbElements() const;
     int rechercheIndice (const ElementGraphique &) const;
-    //void trier();
+    void trier();
 
 
 
@@ -71,7 +70,7 @@ private:
 
     int m_largeur;
     int m_hauteur;
-    set<PEG> m_tabElementGraphique;
+    vector<PEG> m_tabElementGraphique;
 };
 
 

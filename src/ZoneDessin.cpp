@@ -22,7 +22,7 @@ ZoneDessin::ZoneDessin(const ZoneDessin& zs):
 {
     for (int i = 0; i < zs.nbElements() ; i++ )
     {
-        this->ajouter(zs.element(i));
+        this->ajouterFin(zs.element(i));
     }
 }
 
@@ -42,37 +42,35 @@ int ZoneDessin::hauteur() const
     return this->m_hauteur;
 }
 
-int ZoneDessin::ajouter(ElementGraphique* eg)
+int ZoneDessin::ajouterFin(ElementGraphique* eg)
 {
-    this->m_tabElementGraphique.insert(eg);
+
+    this->m_tabElementGraphique.push_back(eg);
 
     return m_tabElementGraphique.size()-1;
 }
-bool ZoneDessin::enlever(const ElementGraphique& eg)
+bool ZoneDessin::enlever(int e)
 {
     bool retour;
-    int taille = this->m_tabElementGraphique.size();
-    this->m_tabElementGraphique.erase(PEG(&eg));
-
-    if(this->m_tabElementGraphique.size() == taille){
-
-        retour = false;
-    }else{
+    if (nbElements()>0  && e >= 0 && e < nbElements())
+    {
+        this->m_tabElementGraphique.erase(this->m_tabElementGraphique.begin()+e);
         retour = true;
-    }
-
-
+    }else
+    retour = false;
 
     return retour;
 }
+ElementGraphique* ZoneDessin::element(int i) const {
+
+    return this->m_tabElementGraphique[i].getBase();
+}
 
 void ZoneDessin::afficher() const {
-
-
-    for (set<PEG>::const_iterator it = this->m_tabElementGraphique.begin(); it != this->m_tabElementGraphique.end() ; it++ )
+    for (int i = 0; i < this->nbElements() ; i++ )
         {
-            //cout << i << ")" << endl;
-            it->getBase()->afficher();
+            cout << i << ")" << endl;
+            this->m_tabElementGraphique[i].getBase()->afficher();
         }
 }
 
@@ -86,7 +84,7 @@ ZoneDessin& ZoneDessin::operator=(const ZoneDessin& zs){
         this->dimensionner(zs.largeur(),zs.hauteur());
         for (int i = 0;i < zs.nbElements() ; i++ )
             {
-                this->ajouter(zs.element(i));
+                this->ajouterFin(zs.element(i));
             }
     }
     return *this;
@@ -109,9 +107,7 @@ bool ZoneDessin::operator==(const ZoneDessin& zs){
 
 int ZoneDessin::rechercheIndice (const ElementGraphique & eg) const
 {
-    //set<PEG>::const_iterator it = find(this->m_tabElementGraphique.begin(),this->m_tabElementGraphique.end(),PEG(&eg));
-
-    set<PEG>::const_iterator it = this->m_tabElementGraphique.find(PEG(&eg));
+    vector<PEG>::const_iterator it = find(this->m_tabElementGraphique.begin(),this->m_tabElementGraphique.end(),PEG(&eg));
 
     if (it == this->m_tabElementGraphique.end())
     {
@@ -123,4 +119,7 @@ int ZoneDessin::rechercheIndice (const ElementGraphique & eg) const
     }
 
 
+}
+void ZoneDessin::trier(){
+    sort(this->m_tabElementGraphique.begin(),this->m_tabElementGraphique.end());
 }
