@@ -48,7 +48,7 @@ void ElementGraphique::definirEpaisseurTrait(int et){
 }
 
 void ElementGraphique::afficher() const{
-     cout << "je suis un Element graphique avec pour trait " << this->epaisseurTrait()
+     cout << "je suis un Element graphique avec pour epaisseur de trait " << this->epaisseurTrait()
           << " placer en " << this->position().x() << " " << position().y()
           << " et mon perimetre est de " << this->perimetre() << endl;
 }
@@ -65,11 +65,15 @@ bool ElementGraphique::operator==(const ElementGraphique& eg) const{
 }
 
 bool ElementGraphique::operator<(const ElementGraphique& eg) const{
-    if(this->position().x() < eg.position().x())
+    // return true si au moins une des deux conditions vaut true, sinon return false.
+    return this->position().x() < eg.position().x() || this->position().y() < eg.position().y();
+
+    /* Equivalent de :
+    if(this->position().x() < eg.position().x() || )
         return true;
     if(this->position().y() < eg.position().y())
         return true;
-    return false;
+    return false; */
 }
 
 

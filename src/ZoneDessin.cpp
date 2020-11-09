@@ -44,7 +44,6 @@ int ZoneDessin::hauteur() const
 
 int ZoneDessin::ajouterFin(ElementGraphique* eg)
 {
-
     this->m_tabElementGraphique.push_back(eg);
 
     return m_tabElementGraphique.size()-1;
