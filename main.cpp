@@ -65,20 +65,20 @@ int main()
                 switch (rep2)
                 {
                 case '1':
-                    zs.ajouter(new Cercle(Point(x,y),cote_rayon));
+                    zs.ajouterFin(new Cercle(Point(x,y),cote_rayon));
                     break;
                 case '2':
-                    zs.ajouter(new Carre(Point(x,y),cote_rayon));
+                    zs.ajouterFin(new Carre(Point(x,y),cote_rayon));
                     break;
                 case '3':
                     cout << "active ? : ";
                     cin >> actif;
-                    zs.ajouter(new CaseACocher(Carre(Point(x,y),cote_rayon),actif));
+                    zs.ajouterFin(new CaseACocher(Carre(Point(x,y),cote_rayon),actif));
                     break;
                 case '4':
                     cout << "actif ? : ";
                     cin >> actif;
-                    zs.ajouter(new Bouton(Cercle(Point(x,y),cote_rayon),actif));
+                    zs.ajouterFin(new Bouton(Cercle(Point(x,y),cote_rayon),actif));
                     break;
 
                 default:
@@ -91,7 +91,7 @@ int main()
             cout << "index : ";
             cin >> index;
             eg = zs.element(index);
-            retourEnlever = zs.enlever(*eg);
+            retourEnlever = zs.enlever(index);
             if (retourEnlever)
             {
 
@@ -178,7 +178,7 @@ int main()
     while(zs.nbElements() > 0)
     {
         eg = zs.element(0);
-        zs.enlever(*eg);
+        zs.enlever(0);
         delete eg;
 
     }
