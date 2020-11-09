@@ -1,0 +1,72 @@
+# depslib dependency file v1.0
+1604590814 source:c:\users\lguirauton\documents\lp\prog\elementgraphique\main.cpp
+	<iostream>
+	"ElementGraphique.h"
+	"Carre.h"
+	"Cercle.h"
+	"Point.h"
+	"ZoneDessin.h"
+	"ElementActivable.h"
+	"Bouton.h"
+	"CaseACocher.h"
+
+1604591379 source:c:\users\lguirauton\documents\lp\prog\elementgraphique\src\carre.cpp
+	"Carre.h"
+	<iostream>
+	<cstring>
+
+1604591312 c:\users\lguirauton\documents\lp\prog\elementgraphique\include\carre.h
+	"ElementGraphique.h"
+
+1604587407 c:\users\lguirauton\documents\lp\prog\elementgraphique\include\elementgraphique.h
+	"Point.h"
+
+1604410856 c:\users\lguirauton\documents\lp\prog\elementgraphique\include\point.h
+
+1604589780 source:c:\users\lguirauton\documents\lp\prog\elementgraphique\src\cercle.cpp
+	"Cercle.h"
+	<iostream>
+	<cstring>
+
+1604591435 c:\users\lguirauton\documents\lp\prog\elementgraphique\include\cercle.h
+	"ElementGraphique.h"
+
+1604410850 source:c:\users\lguirauton\documents\lp\prog\elementgraphique\src\point.cpp
+	"Point.h"
+
+1604588979 source:c:\users\lguirauton\documents\lp\prog\elementgraphique\src\elementgraphique.cpp
+	"ElementGraphique.h"
+	<iostream>
+
+1604590685 source:c:\users\lguirauton\documents\lp\prog\elementgraphique\src\zonedessin.cpp
+	"ZoneDessin.h"
+	<iostream>
+	<algorithm>
+	<iterator>
+
+1604590685 c:\users\lguirauton\documents\lp\prog\elementgraphique\include\zonedessin.h
+	"ElementGraphique.h"
+	<vector>
+
+1604507933 source:c:\users\lguirauton\documents\lp\prog\elementgraphique\src\elementactivable.cpp
+	"ElementActivable.h"
+	<iostream>
+
+1604507485 c:\users\lguirauton\documents\lp\prog\elementgraphique\include\elementactivable.h
+
+1604509050 source:c:\users\lguirauton\documents\lp\prog\elementgraphique\src\caseacocher.cpp
+	"CaseACocher.h"
+	<iostream>
+
+1604508838 c:\users\lguirauton\documents\lp\prog\elementgraphique\include\caseacocher.h
+	"ElementActivable.h"
+	"Carre.h"
+
+1604509122 source:c:\users\lguirauton\documents\lp\prog\elementgraphique\src\bouton.cpp
+	"Bouton.h"
+	<iostream>
+
+1604508958 c:\users\lguirauton\documents\lp\prog\elementgraphique\include\bouton.h
+	"ElementActivable.h"
+	"Cercle.h"
+
